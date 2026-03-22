@@ -1,0 +1,176 @@
+@reference "../index.css";
+
+@import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
+
+.rbc-calendar {
+  @apply flex flex-col shadow-primary bg-white px-5 pt-5 pb-8.75 gap-5 overflow-hidden;
+}
+
+.rbc-toolbar {
+  @apply flex justify-between relative min-h-22.5;
+
+  &::before {
+    @apply absolute text-[18px] leading-none;
+
+    content: "Calendar View";
+  }
+}
+
+.rbc-toolbar-label {
+  @apply text-[18px] leading-none absolute bottom-1 left-1/2 transform -translate-x-1/2;
+}
+
+.rbc-btn-group {
+  @apply flex border border-border-light rounded-sm;
+
+  &:first-of-type {
+    @apply self-end;
+  }
+
+  &:last-of-type {
+    @apply self-start;
+  }
+
+  button {
+    @apply py-2 px-4.5 text-[13px] leading-5 text-gray-500;
+
+    &:not(:last-child) {
+      @apply border-r border-border-light;
+    }
+  }
+
+  .rbc-active {
+    @apply text-primary;
+  }
+}
+
+.rbc-row {
+  @apply flex;
+}
+
+.rbc-month-header,
+.rbc-time-header {
+  @apply flex bg-gray-100  text-[11px] leading-3.5 text-gray-300 border border-border-light h-min w-full;
+
+  .rbc-header {
+    @apply py-4 text-center font-semibold flex-1 uppercase;
+  }
+}
+
+.rbc-month-view,
+.rbc-time-view {
+  @apply h-full flex flex-col w-full overflow-hidden;
+}
+
+.rbc-month-row {
+  @apply flex flex-col h-full border-x border-b border-border-light relative;
+}
+
+.rbc-row-bg {
+  @apply h-full flex absolute inset-0;
+}
+
+.rbc-row-content {
+  @apply h-full;
+}
+
+.rbc-date-cell {
+  @apply text-[15px] leading-6.25 flex-1 text-right py-4.25 px-4 not-last:border-r not-last:border-border-light z-1 pointer-events-none;
+}
+
+.rbc-off-range .rbc-button-link {
+  @apply opacity-30;
+}
+
+.rbc-today,
+.rbc-today .rbc-timeslot-group {
+  @apply bg-gray-100;
+}
+
+.rbc-allday-cell {
+  @apply relative min-h-12 bg-white border-t border-border-light;
+
+  &::before {
+    content: "all day";
+
+    @apply absolute h-full w-20 border-r border-t border-border-light -translate-x-full bg-white text-[13px] leading-5 text-gray-500 lowercase flex items-center justify-center;
+  }
+}
+
+.rbc-time-header-cell {
+  @apply h-min;
+}
+
+.rbc-time-header-content {
+  @apply grow;
+}
+
+.rbc-time-content {
+  @apply flex w-full grow border-x border-b border-border-light overflow-y-auto;
+
+  & > *:not(:last-child) .rbc-timeslot-group {
+    @apply border-r border-border-light;
+  }
+}
+
+.rbc-time-gutter {
+  @apply w-20;
+}
+
+.rbc-time-header-gutter {
+  @apply border-r border-border-light w-20;
+}
+
+.rbc-timeslot-group {
+  @apply flex-1 flex flex-col justify-center not-last:border-b not-last:border-border-light min-h-12;
+}
+
+.rbc-time-column {
+  @apply flex flex-col;
+}
+
+.rbc-time-slot {
+  @apply flex items-center justify-center;
+}
+
+.rbc-day-slot {
+  @apply flex-1 relative;
+}
+
+.rbc-label {
+  @apply text-[13px] leading-4 text-gray-500;
+}
+
+.rbc-day-bg {
+  @apply flex-1 not-last:border-r not-last:border-border-light;
+}
+
+.rbc-event {
+  @apply bg-primary text-white rounded-sm text-[13px] leading-5 px-3.5 mb-px overflow-hidden outline-1 outline-white cursor-pointer;
+}
+
+.rbc-time-content .rbc-event {
+  @apply absolute;
+}
+
+.rbc-event-content {
+  @apply truncate;
+}
+
+.rbc-row-segment {
+  @apply z-1;
+}
+
+.rbc-events-container {
+  @apply absolute inset-0;
+}
+
+.rbc-current-time-indicator {
+  @apply bg-primary absolute h-px w-full flex items-center;
+
+  &::before {
+    @apply h-2 w-2 bg-primary rounded-2xl absolute -translate-x-1/2;
+
+    content: "";
+  }
+}
